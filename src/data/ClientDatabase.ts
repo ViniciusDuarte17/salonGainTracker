@@ -1,7 +1,8 @@
 import { Iclient } from "../model/client";
+import { IClientRepository } from "../repository/clientRepository";
 import { BaseDatabase } from "./BaseDatabase";
 
-export class ClientDatabase extends BaseDatabase {
+export class ClientDatabase extends BaseDatabase implements IClientRepository{
   private static TABLE_NAME = "salon_client";
 
   public async createClient (client: Iclient): Promise<void> {
