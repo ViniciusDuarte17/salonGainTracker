@@ -1,0 +1,11 @@
+
+POST http://localhost:3000/cliente/signup
+Content-Type: application/json 
+
+// ENPOINT PARA CADASTRAR USUÁRIO
+{
+    "name": "vitin",
+    "email": "vitin@email.com",
+    "password": "suaSenha"
+}
+###
