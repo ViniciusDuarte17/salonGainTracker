@@ -11,3 +11,8 @@ export type clientInputDTO = {
     email: string;
     password: string;
 }
+
+export type clientLogintDTO = {
+    email: string;
+    password: string;
+}

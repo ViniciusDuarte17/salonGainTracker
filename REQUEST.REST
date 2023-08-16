@@ -4,8 +4,18 @@ Content-Type: application/json
 
 // ENPOINT PARA CADASTRAR USUÁRIO
 {
-    "name": "vitin",
-    "email": "vitin@email.com",
-    "password": "suaSenha"
+    "name": "benjamin",
+    "email": "benjamin@teste.com",
+    "password": "ben123"
 }
 ###
+
+POST http://localhost:3000/cliente/login
+Content-Type: application/json 
+
+// ENDPOINT PARA FAZER LOGIN DE USUÁRIO NO SISMETAM LAMA!
+
+{
+    "email": "caila@teste.com",
+    "password": "caila123"
+}
