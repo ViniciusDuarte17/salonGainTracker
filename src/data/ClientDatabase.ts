@@ -11,4 +11,13 @@ export class ClientDatabase extends BaseDatabase {
       throw new Error(error.sqlMessage || error.message);
     }
   }
+
+  public async getUserByEmail(email: string): Promise<Iclient> {
+    const result = await this.getConnection()
+      .select("*")
+      .from(ClientDatabase.TABLE_NAME)
+      .where({ email });
+
+    return result[0] as Iclient;
+  }
 }

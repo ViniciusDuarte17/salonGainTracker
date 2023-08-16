@@ -1,5 +1,5 @@
 import { BaseError } from "../error/BaseError";
-import { Iclient, clientInputDTO } from "../model/client";
+import { Iclient, clientInputDTO, clientLogintDTO } from "../model/client";
 import { IAuthenticator, IHashManger, IIDGenerator } from "../ports/Ports";
 import { IClientRepository } from "../repository/clientRepository";
 
@@ -32,5 +32,27 @@ export class ClientBusiness {
     const accessToken = this.authenticator.generateToken({ id });
 
     return accessToken;
+  }
+
+  async login (client: clientLogintDTO) {
+    const clientFromDb = await this.clientDatabase.getUserByEmail(client.email)
+    
+    if (!client.email || !client.password) {
+      throw new BaseError("É necessário preencher todos os compos", 422);
+    }
+
+    if(!clientFromDb) {
+      throw new BaseError("email inválido!", 401)
+    }
+
+    const hashCompare = await this.hashManager.compare(client.password, clientFromDb.password)
+
+    if (!hashCompare) {
+      throw new BaseError("Invalid Password!", 401);
+    }
+
+    const accessToken = await this.authenticator.generateToken({id: clientFromDb.id})
+
+    return accessToken
   }
 }

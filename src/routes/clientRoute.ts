@@ -17,3 +17,4 @@ const clientBusiness = new ClientBusiness(clientDatabase,idGenerator, hashManage
 const clientController = new ClientController(clientBusiness)
 
 clientRouter.post("/signup",(res, req) =>  clientController.signup(res, req));
+clientRouter.post("/login",(res, req) =>  clientController.login(res, req));

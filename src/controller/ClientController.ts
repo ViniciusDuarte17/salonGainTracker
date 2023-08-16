@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
-import { clientInputDTO } from "../model/client";
+import { clientInputDTO, clientLogintDTO } from "../model/client";
 import { ClientBusiness } from "../business/ClientBusiness";
+import { BaseDatabase } from "../data/BaseDatabase";
 
 export class ClientController {
   constructor(private clientBusiness: ClientBusiness) {}
@@ -19,5 +20,25 @@ export class ClientController {
     } catch (error: any) {
       res.status(400).send({ error: error.message });
     }
+    await BaseDatabase.destroyConnection();
+  }
+
+  async login (req: Request, res: Response): Promise<void> {
+      try {
+        
+        const loginData: clientLogintDTO = {
+          email: req.body.email,
+          password: req.body.password
+        }
+
+        const token = await this.clientBusiness.login(loginData)
+
+        res.status(200).send({ token });
+
+      } catch (error: any) {
+        res.status(400).send({ error: error.message });
+      }
+
+      await BaseDatabase.destroyConnection();
   }
 }
