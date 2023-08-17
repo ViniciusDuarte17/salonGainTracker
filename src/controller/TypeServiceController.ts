@@ -22,4 +22,14 @@ export class TypeServiceController {
       res.status(400).send({ error: error.message });
     }
   }
+
+  async getTypeServiceController(req: Request, res: Response): Promise<void>{
+    try {
+      const token = req.headers.authorization as string;
+      const result = await this.typeServiceBusiness.getTypeService(token)
+      res.status(201).send(result);
+    } catch (error: any) {
+      res.status(400).send({ error: error.message });
+    }
+  }
 }

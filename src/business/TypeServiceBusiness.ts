@@ -1,5 +1,5 @@
 import { BaseError } from "../error/BaseError";
-import { ItypeService, ItypeServiceDTO } from "../model/typeService";
+import { CombineTipeService, ItypeService, ItypeServiceDTO } from "../model/typeService";
 import { IAuthenticator, IIDGenerator } from "../ports/Ports";
 import { IClientRepository } from "../repository/clientRepository";
 import { ITypeServiceRepository } from "../repository/clientServiceRepository";
@@ -10,7 +10,7 @@ export class TypeServiceBusiness {
     private typeServiceDatabase: ITypeServiceRepository,
     private authenticator: IAuthenticator,
     private idGenerator: IIDGenerator
-  ) {}
+  ) { }
 
   async createTypeService(
     token: string,
@@ -21,7 +21,6 @@ export class TypeServiceBusiness {
     const tokenData = this.authenticator.getData(token);
 
     const client = await this.clientDatabase.getUserById(tokenData.id);
-
 
     if (!client.id) {
       throw new BaseError("Usário não autorizado!", 401);
@@ -52,4 +51,32 @@ export class TypeServiceBusiness {
 
     await this.typeServiceDatabase.createClientService(populoClientService);
   }
+
+  async getTypeService(token: string): Promise<CombineTipeService[]> {
+
+    if (!token) {
+      throw new BaseError("É necessário passar o token de acesso no header authorization", 404);
+    }
+
+    const tokenData = this.authenticator.getData(token);
+
+    const typeService = await this.typeServiceDatabase.getClientService(
+      tokenData.id
+    );
+
+    let valorTotal = 0
+
+    typeService.forEach(item => {
+      if (item.valueTotalByService) {
+        valorTotal += item.valueTotalByService;
+      }
+    });
+
+    const newTypeService = [...typeService, { valorTotal }] as unknown as CombineTipeService[]
+
+    return newTypeService;
+  }
+
+
+
 }

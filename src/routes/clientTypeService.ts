@@ -18,3 +18,4 @@ const typeServiceController = new TypeServiceController(typeServiceBusiness)
 
 
 clientTypeService.post("/",(res, req) => typeServiceController.createTypeServiceController(res, req));
+clientTypeService.get("/",(res, req) => typeServiceController.getTypeServiceController(res, req));
