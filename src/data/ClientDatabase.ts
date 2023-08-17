@@ -21,4 +21,13 @@ export class ClientDatabase extends BaseDatabase implements IClientRepository{
 
     return result[0] as Iclient;
   }
+
+  public async getUserById(id: string): Promise<Iclient> {
+    const result = await this.getConnection()
+      .select("*")
+      .from(ClientDatabase.TABLE_NAME)
+      .where({ id });
+
+    return result[0] as Iclient;
+  }
 }

@@ -16,6 +16,20 @@ Content-Type: application/json
 // ENDPOINT PARA FAZER LOGIN DE USUÁRIO NO SISMETAM LAMA!
 
 {
-    "email": "caila@teste.com",
-    "password": "caila123"
+    "email": "benjamin@teste.com",
+    "password": "ben123"
+}
+
+###
+
+POST http://localhost:3000/service
+Content-Type: application/json 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMzYWUwYjMxLWEyY2MtNDQ3Yy1iNmQ0LWIyOTc5MTg4ZWIxOCIsImlhdCI6MTY5MjIzNTQ4MiwiZXhwIjoxNjkyMjM2NjgyfQ.AgFh3vRujv50lypq5EA_dd64fPhcvIlX6wuRctBExLY
+
+// ENPOINT PARA CADASTRAR O TIPO DE SERVIÇO
+
+{
+    "typeService": "corte simples",
+    "valueService": 20,
+    "amount": 5
 }
