@@ -77,6 +77,31 @@ export class TypeServiceBusiness {
     return newTypeService;
   }
 
+  async updateTypeService(id: string, token: string, serviceByType: ItypeServiceDTO): Promise<void> {
+    const { typeService, valueService, amount } = serviceByType;
 
+    if (!token) {
+      throw new BaseError("É necessário passar o token de acesso no header authorization", 404);
+    }
+
+    if (!id) {
+      throw new BaseError("É necessário passar o id do serviço", 422);
+    }
+
+    if (
+      typeService === '' ||
+      valueService === undefined ||
+      amount === undefined
+    ) {
+      throw new BaseError("Nenhum dos campos deve estar em branco.", 422)
+    }
+
+    if (!typeService && !valueService && !amount) {
+      throw new BaseError("Escolha ao menos um campo para editar!", 422)
+    }
+
+    await this.typeServiceDatabase.updateTypeService(id, serviceByType)
+
+  }
 
 }

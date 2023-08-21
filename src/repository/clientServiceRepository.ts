@@ -1,7 +1,8 @@
-import { CombineTipeService, ItypeService } from "../model/typeService";
+import { CombineTipeService, ItypeService, ItypeServiceDTO } from "../model/typeService";
 
 
 export interface ITypeServiceRepository {
     createClientService (inputService: ItypeService): Promise<void>
     getClientService(idClient: string): Promise<ItypeService[]>
+    updateTypeService(id: string, typeService: ItypeServiceDTO): Promise<void>
 }

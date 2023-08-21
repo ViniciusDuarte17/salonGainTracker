@@ -1,4 +1,4 @@
-import { CombineTipeService, ItypeService } from "../model/typeService";
+import { ItypeService, ItypeServiceDTO } from "../model/typeService";
 import { BaseDatabase } from "./BaseDatabase";
 
 export class TypeServiceDatabase extends BaseDatabase {
@@ -35,6 +35,22 @@ export class TypeServiceDatabase extends BaseDatabase {
 
         return typeService 
 
+    } catch (error: any) {
+      throw new Error(error.sqlMessage || error.message);
+    }
+  }
+
+  public async updateTypeService(id: string, serviceByType: ItypeServiceDTO): Promise<void> {
+    try {
+      const {typeService ,valueService,  amount } = serviceByType
+      await this.getConnection()
+      .from(TypeServiceDatabase.TABLE_NAME)
+      .where({id})
+      .update({
+        type_service: typeService,
+        value_service: valueService,
+        amount
+      })
     } catch (error: any) {
       throw new Error(error.sqlMessage || error.message);
     }
