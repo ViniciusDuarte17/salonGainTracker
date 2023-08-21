@@ -32,4 +32,25 @@ export class TypeServiceController {
       res.status(400).send({ error: error.message });
     }
   }
+
+  async updateTypeServiceControler(req: Request, res: Response): Promise<void> {
+    try {
+      const token = req.headers.authorization as string;
+
+      const id = req.params.id;
+
+      const inputClientServe: ItypeServiceDTO = {
+        typeService: req.body.typeService,
+        valueService: Number(req.body.valueService),
+        amount: Number(req.body.amount),
+      };
+
+      await this.typeServiceBusiness.updateTypeService(id, token, inputClientServe)
+
+      res.status(200).send({ message: "tipo do serviço foi atualizado com sucesso!" });
+
+    } catch (error: any) {
+      res.status(400).send({ error: error.message });
+    }
+  }
 }
