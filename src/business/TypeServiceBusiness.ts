@@ -84,12 +84,14 @@ export class TypeServiceBusiness {
       throw new BaseError("É necessário passar o token de acesso no header authorization", 404);
     }
 
+    this.authenticator.getData(token);
+
     if (!id) {
       throw new BaseError("É necessário passar o id do serviço", 422);
     }
 
     if (
-      typeService === '' ||
+      typeService === undefined ||
       valueService === undefined ||
       amount === undefined
     ) {
