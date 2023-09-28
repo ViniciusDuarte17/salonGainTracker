@@ -1,5 +1,5 @@
 GET http://localhost:3000/service
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMzYWUwYjMxLWEyY2MtNDQ3Yy1iNmQ0LWIyOTc5MTg4ZWIxOCIsImlhdCI6MTY5MjcyNzc1MiwiZXhwIjoxNjkyNzI4OTUyfQ.pGkDB6tvp-I-kyebuG3rzrF9F3lXJhZiSxADeOp8o7g
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjBjNjkyLTU1ODgtNGYxNy1iZWMyLTQ1ODgzNDJmMWZiOCIsImlhdCI6MTY5NTkzMTE4NiwiZXhwIjoxNjk1OTMyMzg2fQ.gAIuSVZu5edTcoC12KJcSuKrF0VBkqkRLgz_FOiQZeo
 ###
 
 POST http://localhost:3000/cliente/signup
@@ -7,9 +7,9 @@ Content-Type: application/json
 
 // ENPOINT PARA CADASTRAR USUÁRIO
 {
-    "name": "benjamin",
-    "email": "benjamin@teste.com",
-    "password": "ben123"
+    "name": "vinicius",
+    "email": "vinicius@gmail.com",
+    "password": "vini123"
 }
 ###
 
@@ -19,22 +19,22 @@ Content-Type: application/json
 // ENDPOINT PARA FAZER LOGIN DE USUÁRIO NO SISMETAM LAMA!
 
 {
-    "email": "benjamin@teste.com",
-    "password": "ben123"
+    "email": "vinicius@gmail.com",
+    "password": "vini123"
 }
 
 ###
 
 POST http://localhost:3000/service
 Content-Type: application/json 
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMzYWUwYjMxLWEyY2MtNDQ3Yy1iNmQ0LWIyOTc5MTg4ZWIxOCIsImlhdCI6MTY5MjY0NTk3OCwiZXhwIjoxNjkyNjQ3MTc4fQ.oxoBzmPn6CMKAkzzHKENwB22CUlPDcgq0s5Ri7Cm26k
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjBjNjkyLTU1ODgtNGYxNy1iZWMyLTQ1ODgzNDJmMWZiOCIsImlhdCI6MTY5NTkyODQ3NiwiZXhwIjoxNjk1OTI5Njc2fQ.-WPvpL-C2bt45h-k3Loej0br8uTPEVeJzqs1deXHpgU
 
 // ENPOINT PARA CADASTRAR O TIPO DE SERVIÇO
 
 {
-    "typeService": "corte completo",
-    "valueService": 30,
-    "amount": 5
+    "typeService": "corte simples",
+    "valueService": 20,
+    "amount": 3
 }
 
 ###

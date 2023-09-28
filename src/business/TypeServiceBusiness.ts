@@ -52,7 +52,7 @@ export class TypeServiceBusiness {
     await this.typeServiceDatabase.createClientService(populoClientService);
   }
 
-  async getTypeService(token: string): Promise<CombineTipeService[]> {
+  async getTypeService(token: string): Promise<ItypeService[]> {
 
     if (!token) {
       throw new BaseError("É necessário passar o token de acesso no header authorization", 404);
@@ -64,17 +64,7 @@ export class TypeServiceBusiness {
       tokenData.id
     );
 
-    let valorTotal = 0
-
-    typeService.forEach(item => {
-      if (item.valueTotalByService) {
-        valorTotal += item.valueTotalByService;
-      }
-    });
-
-    const newTypeService = [...typeService, { valorTotal }] as unknown as CombineTipeService[]
-
-    return newTypeService;
+    return typeService;
   }
 
   async updateTypeService(id: string, token: string, serviceByType: ItypeServiceDTO): Promise<void> {
