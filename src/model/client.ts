@@ -16,3 +16,8 @@ export type clientLogintDTO = {
     email: string;
     password: string;
 }
+
+export interface Cliente {
+  name: string;
+  email: string;
+}

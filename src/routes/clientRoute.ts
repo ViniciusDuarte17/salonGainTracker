@@ -18,3 +18,4 @@ const clientController = new ClientController(clientBusiness)
 
 clientRouter.post("/signup",(res, req) =>  clientController.signup(res, req));
 clientRouter.post("/login",(res, req) =>  clientController.login(res, req));
+clientRouter.get('/perfil', (res, req) => clientController.profile(res,req))

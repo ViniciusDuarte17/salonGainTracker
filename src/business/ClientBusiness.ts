@@ -1,5 +1,5 @@
 import { BaseError } from "../error/BaseError";
-import { Iclient, clientInputDTO, clientLogintDTO } from "../model/client";
+import { Cliente, Iclient, clientInputDTO, clientLogintDTO } from "../model/client";
 import { IAuthenticator, IHashManger, IIDGenerator } from "../ports/Ports";
 import { IClientRepository } from "../repository/clientRepository";
 
@@ -54,5 +54,20 @@ export class ClientBusiness {
     const accessToken = await this.authenticator.generateToken({id: clientFromDb.id})
 
     return accessToken
+  }
+
+  async getClient(token: string):Promise<Cliente> {
+    
+    if (!token) {
+      throw new BaseError("É necessário passar o token de acesso no header authorization", 404);
+    }
+
+    const tokenData = this.authenticator.getData(token);
+     
+    const clientFromData = await this.clientDatabase.getUserById(tokenData.id);
+
+    const { name, email} = clientFromData;
+
+    return {name, email}
   }
 }

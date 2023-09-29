@@ -1,5 +1,9 @@
+GET http://localhost:3000/cliente/perfil
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjBjNjkyLTU1ODgtNGYxNy1iZWMyLTQ1ODgzNDJmMWZiOCIsImlhdCI6MTY5NTk5NzY4NiwiZXhwIjoxNjk1OTk4ODg2fQ.eYZjDcTj6q-pkfdf0FBBtEhlYmjTGP25yCTsyIJyODk
+
+###
 GET http://localhost:3000/service
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjBjNjkyLTU1ODgtNGYxNy1iZWMyLTQ1ODgzNDJmMWZiOCIsImlhdCI6MTY5NTkzMTE4NiwiZXhwIjoxNjk1OTMyMzg2fQ.gAIuSVZu5edTcoC12KJcSuKrF0VBkqkRLgz_FOiQZeo
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjBjNjkyLTU1ODgtNGYxNy1iZWMyLTQ1ODgzNDJmMWZiOCIsImlhdCI6MTY5NTk4ODI3NiwiZXhwIjoxNjk1OTg5NDc2fQ.A-0PAcfLAPHgEbFt3kGbr0O2l9vAC1q0qCFOXLgZaC4
 ###
 
 POST http://localhost:3000/cliente/signup
@@ -27,14 +31,14 @@ Content-Type: application/json
 
 POST http://localhost:3000/service
 Content-Type: application/json 
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjBjNjkyLTU1ODgtNGYxNy1iZWMyLTQ1ODgzNDJmMWZiOCIsImlhdCI6MTY5NTkyODQ3NiwiZXhwIjoxNjk1OTI5Njc2fQ.-WPvpL-C2bt45h-k3Loej0br8uTPEVeJzqs1deXHpgU
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjBjNjkyLTU1ODgtNGYxNy1iZWMyLTQ1ODgzNDJmMWZiOCIsImlhdCI6MTY5NTk4ODI3NiwiZXhwIjoxNjk1OTg5NDc2fQ.A-0PAcfLAPHgEbFt3kGbr0O2l9vAC1q0qCFOXLgZaC4
 
 // ENPOINT PARA CADASTRAR O TIPO DE SERVIÇO
 
 {
-    "typeService": "corte simples",
-    "valueService": 20,
-    "amount": 3
+    "typeService": "buço",
+    "valueService": 10,
+    "amount": 2
 }
 
 ###
