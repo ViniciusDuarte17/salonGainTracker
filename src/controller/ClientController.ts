@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { clientInputDTO, clientLogintDTO } from "../model/client";
+import { Cliente, clientInputDTO, clientLogintDTO } from "../model/client";
 import { ClientBusiness } from "../business/ClientBusiness";
 import { BaseDatabase } from "../data/BaseDatabase";
 
@@ -40,5 +40,19 @@ export class ClientController {
       }
 
       await BaseDatabase.destroyConnection();
+  }
+
+  async profile (req: Request, res: Response): Promise<void>{
+    try {
+      const token = req.headers.authorization as string;
+
+      const profile = await this.clientBusiness.getClient(token)
+
+      res.status(200).send({perfil: profile})
+      
+    } catch (error: any) {
+      res.status(400).send({ error: error.message });
+    }
+    await BaseDatabase.destroyConnection();
   }
 }
