@@ -65,7 +65,19 @@ export class TypeServiceBusiness {
       tokenData.id
     );
 
-    return typeService;
+    typeService.forEach((item) => {
+      const data = new Date(item.dataTracker);
+      const dia = data.getDate()
+      const ano = data.getFullYear();
+      const mes = data.getMonth() + 1;
+      const newMes = mes < 10 ? `0${mes}` : mes;
+      const newDia = dia < 10 ? `0${dia}` : dia;
+      item.dataTracker = newDia + '/'+ newMes + "/" + ano;
+    });
+
+    const result = typeService
+
+    return result;
   }
 
   async updateTypeService(id: string, token: string, serviceByType: ItypeServiceDTO): Promise<void> {
@@ -98,40 +110,6 @@ export class TypeServiceBusiness {
   }
 
   async getTypeServiceByMes(token: string): Promise<ItypeService[]> {
-    const servicos = [
-      {
-        id: "11dc9cf2-ded3-45f6-9995-521782bc79a6",
-        typeService: "corte completo",
-        valueService: 30,
-        amount: 4,
-        dataTracker: "2023-10-01T16:13:18.000Z",
-        valueTotalByService: 120,
-      },
-      {
-        id: "49d210d8-af8a-4860-9457-7d6d26144db0",
-        typeService: "buço",
-        valueService: 10,
-        amount: 2,
-        dataTracker: "2023-09-29T08:52:23.000Z",
-        valueTotalByService: 20,
-      },
-      {
-        id: "5f806fb8-e1c3-4c61-9c28-1a3f5388e3be",
-        typeService: "corte completo",
-        valueService: 30,
-        amount: 5,
-        dataTracker: "2023-09-28T16:15:40.000Z",
-        valueTotalByService: 150,
-      },
-      {
-        id: "9f14a091-8521-44da-b146-cdcfc8fe062c",
-        typeService: "corte simples",
-        valueService: 20,
-        amount: 3,
-        dataTracker: "2023-09-28T16:17:16.000Z",
-        valueTotalByService: 60,
-      },
-    ]
 
     if (!token) {
       throw new BaseError("É necessário passar o token de acesso no header authorization", 404);
@@ -143,19 +121,16 @@ export class TypeServiceBusiness {
       tokenData.id
     );
 
-    
-      servicos.forEach((item) => {
-        const data = new Date(item.dataTracker);
-        const ano = data.getFullYear();
-        const mes = data.getMonth() + 1;
-        const newMes = mes < 10 ? `0${mes}` : mes;
-        item.dataTracker = newMes + "/" + ano;
+    typeService.forEach((item) => {
+      const data = new Date(item.dataTracker);
+      const ano = data.getFullYear();
+      const mes = data.getMonth() + 1;
+      const newMes = mes < 10 ? `0${mes}` : mes;
+      item.dataTracker = newMes + "/" + ano;
 
-        if (item.dataTracker === item.dataTracker) {
-        }
-      });
+    });
       
-    const result = agruparAcumularPorData(servicos)
+    const result = agruparAcumularPorData(typeService)
 
     return result;
   }
