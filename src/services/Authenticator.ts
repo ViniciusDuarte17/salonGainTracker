@@ -2,7 +2,7 @@ import * as jwt from "jsonwebtoken";
 import { IAuthenticator } from "../ports/Ports";
 
 export class Authenticator implements IAuthenticator {
-  private static expiresIn: number = 1200;
+  private static expiresIn = process.env.ACCESS_TOKEN_EXPIRES_IN
   public generateToken(input: AuthenticationData): string {
     const token = jwt.sign(
       {

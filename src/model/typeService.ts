@@ -8,7 +8,7 @@ export interface ItypeService {
     typeService: string;
     valueService: number;
     amount: number;
-    dataTracker: Date;
+    dataTracker: Date | string;
     clientId?: string;
     valueTotalByService?: number;
 }

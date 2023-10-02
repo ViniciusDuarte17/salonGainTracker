@@ -1,9 +1,13 @@
-GET http://localhost:3000/cliente/perfil
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjBjNjkyLTU1ODgtNGYxNy1iZWMyLTQ1ODgzNDJmMWZiOCIsImlhdCI6MTY5NTk5NzY4NiwiZXhwIjoxNjk1OTk4ODg2fQ.eYZjDcTj6q-pkfdf0FBBtEhlYmjTGP25yCTsyIJyODk
 
+GET http://localhost:3000/cliente/perfil
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjBjNjkyLTU1ODgtNGYxNy1iZWMyLTQ1ODgzNDJmMWZiOCIsImlhdCI6MTY5NjIwOTI0NiwiZXhwIjoxNjk2MjEyODQ2fQ.2Bj78T9fWyCxRQOqtBzjMgneJzBTZ80tQwWwTu2YhWk
 ###
 GET http://localhost:3000/service
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjBjNjkyLTU1ODgtNGYxNy1iZWMyLTQ1ODgzNDJmMWZiOCIsImlhdCI6MTY5NTk4ODI3NiwiZXhwIjoxNjk1OTg5NDc2fQ.A-0PAcfLAPHgEbFt3kGbr0O2l9vAC1q0qCFOXLgZaC4
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjBjNjkyLTU1ODgtNGYxNy1iZWMyLTQ1ODgzNDJmMWZiOCIsImlhdCI6MTY5NjE4NzE1NSwiZXhwIjoxNjk2MTkwNzU1fQ.oBGwSvtc67R926Re3K5lI1bWaVIYmlGJgBtOMv1LG4w
+###
+
+GET http://localhost:3000/service/mes
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjBjNjkyLTU1ODgtNGYxNy1iZWMyLTQ1ODgzNDJmMWZiOCIsImlhdCI6MTY5NjIwODIyNywiZXhwIjoxNjk2MjExODI3fQ.o1bupENIXQ76l8KuPqdTytxnjuukVgOT5jXXawLYhuE
 ###
 
 POST http://localhost:3000/cliente/signup
@@ -31,14 +35,14 @@ Content-Type: application/json
 
 POST http://localhost:3000/service
 Content-Type: application/json 
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjBjNjkyLTU1ODgtNGYxNy1iZWMyLTQ1ODgzNDJmMWZiOCIsImlhdCI6MTY5NTk4ODI3NiwiZXhwIjoxNjk1OTg5NDc2fQ.A-0PAcfLAPHgEbFt3kGbr0O2l9vAC1q0qCFOXLgZaC4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjBjNjkyLTU1ODgtNGYxNy1iZWMyLTQ1ODgzNDJmMWZiOCIsImlhdCI6MTY5NjE4NzE1NSwiZXhwIjoxNjk2MTkwNzU1fQ.oBGwSvtc67R926Re3K5lI1bWaVIYmlGJgBtOMv1LG4w
 
 // ENPOINT PARA CADASTRAR O TIPO DE SERVIÇO
 
 {
-    "typeService": "buço",
-    "valueService": 10,
-    "amount": 2
+    "typeService": "corte completo",
+    "valueService": 30,
+    "amount":4
 }
 
 ###

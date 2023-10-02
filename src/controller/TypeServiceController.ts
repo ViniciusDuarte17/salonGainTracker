@@ -33,6 +33,16 @@ export class TypeServiceController {
     }
   }
 
+  async getTypeServiceControllerByMes(req: Request, res: Response): Promise<void>{
+    try {
+      const token = req.headers.authorization as string;
+      const result = await this.typeServiceBusiness.getTypeServiceByMes(token)
+      res.status(201).send(result);
+    } catch (error: any) {
+      res.status(400).send({ error: error.message });
+    }
+  }
+
   async updateTypeServiceControler(req: Request, res: Response): Promise<void> {
     try {
       const token = req.headers.authorization as string;
