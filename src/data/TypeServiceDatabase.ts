@@ -23,34 +23,40 @@ export class TypeServiceDatabase extends BaseDatabase {
 
   public async getClientService(idClient: string): Promise<ItypeService[]> {
     try {
-        const typeService = await this.getConnection()
-        .select("id",
-            "type_service AS typeService",
-            "value_service AS valueService",
-            "amount",
-            "data_tracker AS dataTracker",
-          this.getConnection().raw("(value_service * amount) AS valueTotalByService"))
+      const typeService = await this.getConnection()
+        .select(
+          "id",
+          "type_service AS typeService",
+          "value_service AS valueService",
+          "amount",
+          "data_tracker AS dataTracker",
+          this.getConnection().raw(
+            "(value_service * amount) AS valueTotalByService"
+          )
+        )
         .from(TypeServiceDatabase.TABLE_NAME)
         .where("client_id", "=", idClient)
-
-        return typeService 
-
+        .orderBy("dataTracker");
+      return typeService;
     } catch (error: any) {
       throw new Error(error.sqlMessage || error.message);
     }
   }
 
-  public async updateTypeService(id: string, serviceByType: ItypeServiceDTO): Promise<void> {
+  public async updateTypeService(
+    id: string,
+    serviceByType: ItypeServiceDTO
+  ): Promise<void> {
     try {
-      const {typeService ,valueService,  amount } = serviceByType
+      const { typeService, valueService, amount } = serviceByType;
       await this.getConnection()
-      .from(TypeServiceDatabase.TABLE_NAME)
-      .where({id})
-      .update({
-        type_service: typeService,
-        value_service: valueService,
-        amount
-      })
+        .from(TypeServiceDatabase.TABLE_NAME)
+        .where({ id })
+        .update({
+          type_service: typeService,
+          value_service: valueService,
+          amount,
+        });
     } catch (error: any) {
       throw new Error(error.sqlMessage || error.message);
     }
