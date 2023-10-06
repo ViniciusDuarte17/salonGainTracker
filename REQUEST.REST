@@ -1,6 +1,6 @@
 
-GET https://tender-neckerchief-mite.cyclic.app/cliente/perfil
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjBjNjkyLTU1ODgtNGYxNy1iZWMyLTQ1ODgzNDJmMWZiOCIsImlhdCI6MTY5NjUzOTIwNCwiZXhwIjoxNjk2NTQyODA0fQ.526qSEUQwuK8qezH1LK8M48b_VFsH3A_uAkEUXqVUXQ
+GET https://salon-gain-tracker-7pi78lltk-viniciusduarte17.vercel.app/cliente/perfil
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjBjNjkyLTU1ODgtNGYxNy1iZWMyLTQ1ODgzNDJmMWZiOCIsImlhdCI6MTY5NjYxODE0NywiZXhwIjoxNjk2NjIxNzQ3fQ.Sri0zUhDv31iEypVLLJMcy7ohgBL8YTiuvnZXciRg8U
 ###
 
 
@@ -24,7 +24,7 @@ Content-Type: application/json
 }
 ###
 
-POST http://localhost:3000/cliente/login
+POST https://salon-gain-tracker-7pi78lltk-viniciusduarte17.vercel.app/cliente/login
 Content-Type: application/json 
 
 // ENDPOINT PARA FAZER LOGIN DE USUÁRIO NO SISMETAM LAMA!
