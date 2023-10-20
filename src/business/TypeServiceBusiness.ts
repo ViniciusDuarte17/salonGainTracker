@@ -1,5 +1,5 @@
 import { BaseError } from "../error/BaseError";
-import { CombineTipeService, ItypeService, ItypeServiceDTO } from "../model/typeService";
+import { ItypeService, ItypeServiceDTO } from "../model/typeService";
 import { IAuthenticator, IIDGenerator } from "../ports/Ports";
 import { IClientRepository } from "../repository/clientRepository";
 import { ITypeServiceRepository } from "../repository/clientServiceRepository";

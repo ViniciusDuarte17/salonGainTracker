@@ -27,7 +27,7 @@ Content-Type: application/json
 POST https://salon-gain-tracker-7pi78lltk-viniciusduarte17.vercel.app/cliente/login
 Content-Type: application/json 
 
-// ENDPOINT PARA FAZER LOGIN DE USUÁRIO NO SISMETAM LAMA!
+// ENDPOINT PARA FAZER LOGIN DE USUÁRIO!
 
 {
     "email": "vinicius@gmail.com",
@@ -50,7 +50,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjBjNjkyLTU1ODgt
 
 ###
 
-PUT http://localhost:3000/service/4cfb63e9-065d-47e2-9d65-8e4b3d6ac827
+PUT https://salon-gain-tracker-7pi78lltk-viniciusduarte17.vercel.app/service/4cfb63e9-065d-47e2-9d65-8e4b3d6ac827
 Content-Type: application/json 
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMzYWUwYjMxLWEyY2MtNDQ3Yy1iNmQ0LWIyOTc5MTg4ZWIxOCIsImlhdCI6MTY5MjI4NzYyMywiZXhwIjoxNjkyMjg4ODIzfQ.Mm_9zMK2_PREbQyuZzc9p_XzEOus4Tm5ydy_h4NqwK4
 
