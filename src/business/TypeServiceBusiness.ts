@@ -87,11 +87,21 @@ export class TypeServiceBusiness {
       throw new BaseError("É necessário passar o token de acesso no header authorization", 404);
     }
 
-    this.authenticator.getData(token);
+    const tokenData = this.authenticator.getData(token);
 
     if (!id) {
       throw new BaseError("É necessário passar o id do serviço", 422);
     }
+
+    let idValid = false;
+
+    const idService = await this.typeServiceDatabase.getClientService(tokenData.id);
+
+    idService.forEach( (item) => {
+      if(item.id === id) {
+        idValid = true;
+      } 
+    })
 
     if (
       typeService === undefined ||
@@ -103,6 +113,10 @@ export class TypeServiceBusiness {
 
     if (!typeService && !valueService && !amount) {
       throw new BaseError("Escolha ao menos um campo para editar!", 422)
+    }
+
+    if(idValid === false ) {
+      throw new BaseError("Falha no id",404)
     }
 
     await this.typeServiceDatabase.updateTypeService(id, serviceByType)
